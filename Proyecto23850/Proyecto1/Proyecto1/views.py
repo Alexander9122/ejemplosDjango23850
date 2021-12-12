@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import Template, Context
 from datetime import datetime
+from django.template import loader
 
 def saludo(request):
     return HttpResponse("Soy Jorge - Hola Django - Coder")
@@ -32,14 +33,28 @@ def CalculoEdad(request, anio):
 
 def probandoTemplate(request):
 
-    miHTML = open("C:/Users/Jorge Alexander/Desktop/Proyecto23850/Proyecto1/Proyecto1/plantillas/template1.html")
+    mejorEstudiante = "Jorge Alexander"
 
-    plantilla = Template(miHTML.read())
+    nota = 8.9
 
-    miHTML.close()
+    fecha = datetime.now
 
-    miContexto = Context()
+    estudiantesSimpaticos = ["Jorge", "Danny","Paola"]
 
-    documento = plantilla.render(miContexto)
+    dicc = {"nombre":mejorEstudiante, "nota":nota, "fecha": fecha, "estudiantes": estudiantesSimpaticos}
+
+    plantilla = loader.get_template("template1.html")
+
+#    miHTML = open("C:/Users/jlale/OneDrive/Documentos/ejemplosDjango23850/Proyecto23850/Proyecto1/Proyecto1/plantillas/template1.html")
+
+#   plantilla = Template(miHTML.read())
+
+#   miHTML.close()
+
+#    miContexto = Context(dicc)
+
+#    documento = plantilla.render(miContexto)
+
+    documento = plantilla.render(dicc)
 
     return HttpResponse(documento)

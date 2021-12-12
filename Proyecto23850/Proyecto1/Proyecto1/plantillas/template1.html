@@ -7,11 +7,37 @@
     <title>GRAN CLASE ---- Aunque no entedi nada :(</title>
 </head>
 <body>
-    <h1>NICO----------------</h1>
 
-    <h2>PEREZ</h2>
+    <!--Forma de comentar en HTML-->
+
+    <p style="color: chartreuse;">HOY ES UN GRAN DIA: {{fecha}}</p>
+
+    <h1>JORGE----------------</h1>
+
+    <h2>ALEXANDER</h2>
 
     <p>Que gran profesor que me toco:) .... En otro curso, en este no :(</p>
     
+    <H2 style="color: red;">El mejor estudiante es: {{nombre}}</H2>
+
+    <h2 style="color: blue;">Su nota es: {{nota}}</h2>
+
+    <h1>SIMPATICOS</h1> <br>
+
+    <p>
+        {% for estu in estudiantes %}
+
+            {% if estu == 'Jorge' %}
+
+                <p style="color: purple;">{{estu}}</p>
+            
+            {% else %}
+            
+                <p>{{estu}}</p>
+            
+            {% endif %}
+
+        {% endfor %}
+    </p>
 </body>
 </html>
