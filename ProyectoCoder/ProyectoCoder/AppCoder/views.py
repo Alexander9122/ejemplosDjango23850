@@ -8,3 +8,7 @@ def inicio (request):
 
     #return HttpResponse("Esto es una prueba de inicio")
     return render(request, 'AppCoder/inicio.html')
+
+def jugadores (request):
+
+    return render(request, 'AppCoder/jugadores.html')
